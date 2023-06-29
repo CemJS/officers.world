@@ -27,6 +27,7 @@ const options = {
         '.jpg': 'file',
         '.jpeg': 'file',
         '.png': 'file',
+        '.gif': 'file',
         '.svg': 'dataurl',
     },
     plugins: [
@@ -47,7 +48,7 @@ const options = {
         {
             name: "assets-images",
             setup(build) {
-                build.onResolve({ filter: /.(jpg|jpeg|png|svg)$/ }, (args) => {
+                build.onResolve({ filter: /.(jpg|jpeg|png|svg|gif)$/ }, (args) => {
                     args.path = args.path.replace("@", "")
                     return { path: path.resolve("assets", args.path) }
                 })
