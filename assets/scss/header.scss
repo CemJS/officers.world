@@ -1,92 +1,151 @@
 @import 'utils/variables.scss';
 
-.home {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
 
-    &_container {
+.header {
+    overflow: hidden;
+    box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.25);
+    background-image: var(--mainGradient);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 15;
+
+    &_menu {
         width: 100%;
-        height: 100vh;
+        padding-left: 35px;
+    }
+
+    &_nav {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         align-items: center;
+        justify-content: space-between;
+    }
+
+    .menu_icon {
+        display: none;
+    }
+
+    &_logo {
+        z-index: 10;
+        position: relative;
+
+        img {
+            width: 85px;
+        }
+    }
+
+    &_inner {
+        display: flex;
+        height: 90px;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+        padding: 30px 0;
+        position: relative;
+    }
+
+    .flag {
+        position: absolute;
+        top: 2px;
+        left: -90px;
+        z-index: 15;
+
+        img {
+            width: 100px;
+            transform: rotate(-25deg);
+        }
+    }
+
+    &_list {
+        display: flex;
+        padding-left: 0;
+        margin: 0;
+        gap: 25px;
+
+        &_item {
+            list-style-type: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 20px;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -5px;
+                width: 100%;
+                height: 2px;
+                background-color: var(--white);
+                transition: 0.2s;
+                transform: scaleX(0);
+            }
+
+            &:hover::before {
+                transform: scaleX(1);
+            }
+        }
     }
 
     &_title {
-        font-size: 52px;
         text-transform: uppercase;
-        color: #948d11;
-        letter-spacing: 5px;
-        margin-bottom: 0;
-        // font-family: 'STMPRBRK';
+        font-weight: 600;
+        position: relative;
+
+        .lenta {
+            position: absolute;
+            top: 15px;
+            left: 180px;
+            transform: rotate(-15deg);
+
+            img {
+                height: 50px;
+            }
+        }
     }
 
-    &_subtitle {
-        font-size: 32px;
-        letter-spacing: 1.5px;
-        color: #948d11;
-        text-transform: uppercase;
-        // font-family: 'STMPRBRK';
-    }
+    .socials {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 25px;
 
-    &_logoCem {
-        width: 230px;
-        height: 230px;
-        animation: earnRotate infinite 20s linear;
-    }
-}
-
-@media(max-width: 992px) {
-    .home {
-
-        &_title,
-        &_subtitle {
-            font-size: 30px;
-            letter-spacing: 2px;
+        &_item {
+            img {
+                width: 25px;
+            }
         }
     }
 }
 
-@media(max-width: 767px) {
-    .home {
+.run_line {
+    margin-top: 90px;
+    font-size: 18px;
+    color: var(--primaryText);
+    position: relative;
+    padding: 10px 0;
+    font-weight: 600;
+    background-color: var(--secondaryBack);
 
-        &_title,
-        &_subtitle {
-            font-size: 26px;
-            letter-spacing: 2px;
-        }
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 150px;
+        height: 100%;
+        z-index: 2;
     }
 
-}
-
-@media(max-width: 464px) {
-    .home {
-        &_container {
-            padding: 0 10px;
-        }
-
-        &_title,
-        &_subtitle {
-            font-size: 18px;
-            letter-spacing: 2px;
-        }
-
-        &_logoCem {
-            width: 55%;
-            height: auto;
-        }
-    }
-}
-
-@keyframes earnRotate {
-    from {
-        transform: rotate(0deg);
+    &::before {
+        right: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), #d2b48c);
     }
 
-    to {
-        transform: rotate(360deg);
+    &::after {
+        left: 0;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0), #d2b48c);
     }
 }

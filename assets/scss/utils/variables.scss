@@ -1,10 +1,17 @@
-//colors
-$white: #ffffff;
-$akebi_purple: #9844b7;
-$noble_black: #1D2029;
-$summer_sky: #3bade3;
-$blue_oyster_cult: #576fe6;
-$lilac_lotion: #ff357f;
-$glass: rgba(150, 150, 150, 0.2);
-$border: rgba(150, 150, 150, 0.5);
-$title: rgba(5, 5, 168, 0.7);
+:root {
+  --app-height: 100%;
+  --primaryText: #273139;
+  --white: #FFFFFF;
+  --black: #000000;
+  // --title: rgba(5, 5, 168, 0.7);
+  // --title: #633A34;
+  // --title: #d53e07;
+  --title: #8c1c28;
+  --back: #f1f4f9;
+  --primaryBlue: rgb(5, 5, 168);
+  // --mainGradient: linear-gradient(135deg, rgb(5, 5, 168), rgb(102, 153, 255));
+  --mainGradient: linear-gradient(260deg, #d9744f, #d2b48c);
+  --primaryRed: rgb(167, 17, 6, 0.8);
+  --primaryRedHover: rgb(167, 17, 6);
+  --secondaryBack: rgba(255, 255, 255, 0.4);
+}

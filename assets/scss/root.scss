@@ -1,5 +1,7 @@
 @import 'utils/variables.scss';
 @import 'utils/fonts.scss';
+@import 'utils/elements.scss';
+
 
 *,
 ::after,
@@ -11,31 +13,42 @@
     -webkit-tap-highlight-color: transparent;
 }
 
-:root {
-    --app-height: 100%;
-}
-
 html,
 body {
     height: var(--app-height);
 }
 
 body {
-    height: 100vh;
+    // height: 100vh;
+    width: 100%;
     margin: 0px;
     padding: 0 !important;
     overflow: overlay;
     position: relative;
-    color: $white;
-    background-image: url('images/background/1.jpg');
+    color: var(--primaryText);
+    background-image: url('images/background/4.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    width: 100%;
-    font-family: 'Montserrat';
+    font-family: 'rus';
 
+    #app {
+        min-height: var(--app-height);
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+    }
 }
+
+h1,
+h1,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--title);
+}
+
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -43,11 +56,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: black;
+    // background: var(--back);
+    background: #f7dab6;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgb(102, 153, 255);
+    // background: rgb(102, 153, 255);
+    // background: #D2B48C;
+    background: var(--title);
     border: none;
 }
 
@@ -56,5 +72,6 @@ p {
 }
 
 a {
-    color: $white;
+    color: var(--white);
+    text-decoration: none;
 }

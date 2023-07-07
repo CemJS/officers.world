@@ -1,0 +1,76 @@
+@import 'utils/variables.scss';
+
+.gallery {
+  max-width: 600px;
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+
+  &_main-img {
+    width: 100%;
+    background-size: contain;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &_nav {
+    width: 100px;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .list_wrap {
+    height: 512px;
+    -webkit-touch-callout: none;
+    user-select: none;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    z-index: 1;
+    margin: 15px 0;
+  }
+
+  &_list {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    transition-property: transform;
+    box-sizing: content-box;
+    transform: translate3d(0, 0, 0);
+    transition-duration: 0ms;
+    padding: 0;
+  }
+
+  &_slide {
+    height: 92px;
+    max-height: 92px;
+    list-style-type: none;
+    margin-bottom: 8px;
+    width: 100%;
+    cursor: pointer;
+    opacity: .5;
+
+    &-active {
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+}
