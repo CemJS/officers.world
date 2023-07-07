@@ -36,17 +36,46 @@ const gallery = [
 ]
 
 let activeImg = gallery[0]
-let shiftEl;
+let isDragging, startX, startScrollLeft;
 export const display = function () {
 
     return (
         <div class="container">
             <div class="gallery">
                 {/* <div class="gallery_counter"></div> */}
+
+                <div class="gallery_main-img">
+                    <img src={activeImg.src} />
+                </div>
                 <div class="gallery_nav">
-                    <button type="button">top</button>
+                    <button
+                        type="button"
+                        class="gallery_button gallery_button-prev"
+                        onclick={() => {
+                            this.Ref.galleryList.scrollLeft -= this.Ref.gallerySlide.offsetWidth + 10;
+                            this.init();
+                        }}
+                    >
+                        top
+                    </button>
                     <div class="list_wrap">
-                        <ul class="gallery_list" ref="galleryList">
+                        <ul
+                            class="gallery_list"
+                            ref="galleryList"
+                            onmousedown={(e) => {
+                                isDragging = true;
+                                startX = e.pageX;
+                                startScrollLeft = this.Ref.galleryList.scrollLeft;
+                            }}
+                            onmousemove={(e) => {
+                                if (!isDragging) return;
+                                e.preventDefault();
+                                this.Ref.galleryList.scrollLeft = startScrollLeft - (e.pageX - startX);
+                            }}
+                            onmouseup={(e) => {
+                                isDragging = false;
+                            }}
+                        >
                             {
                                 gallery.map((item, index) => {
                                     return (
@@ -69,28 +98,15 @@ export const display = function () {
 
                     <button
                         type="button"
+                        class="gallery_button gallery_button-next"
                         onclick={() => {
-
-                            if (shiftEl === 'undefined') {
-                                console.log('=7529a5=', 'тут')
-                                shiftEl = -(this.Ref.gallerySlide.offsetHeight + 10)
-                            } else {
-                                shiftEl += -(this.Ref.gallerySlide.offsetHeight + 10)
-                            }
-                            //     shiftEl = Number(shiftEl - (-(this.Ref.gallerySlide.offsetHeight + 10)));
-                            // console.log('=4c5d37=', Number(shiftEl))
-
-                            this.Ref.galleryList.style = `transform: translate3d(0 , ${shiftEl}px, 0)`;
+                            this.Ref.galleryList.scrollLeft += this.Ref.gallerySlide.offsetWidth + 10;
                             this.init();
                         }}
                     >
                         down
                     </button>
                 </div>
-                <div class="gallery_main-img">
-                    <img src={activeImg.src} />
-                </div>
-
             </div>
         </div>
 

@@ -31,28 +31,28 @@ const events = [
         alt: '«ОФИЦЕРЫ РОССИИ» ПРОВЕЛИ АВТОПРОБЕГ «ДОРОГАМИ ПАМЯТИ»',
         title: '«ОФИЦЕРЫ РОССИИ» ПРОВЕЛИ ОНЛАЙН-ВСТРЕЧУ УЧАЩИХСЯ С ГЕРОЕМ РОССИИ ЕЛЕНОЙ СЕРОВОЙ',
         desc: '«В нескольких субъектах Федерации День ветеранов боевых действий утвержден на региональном уровне. Теперь такое решение принято и законодательно закреплено в Курской области. Ветеранам важно признание общества, признание их заслуг перед Родиной. Они защищали свою страну, выполняли в разные годы боевые задачи за пределами Отечества во многих уголках мира. Мы надеемся, что в скором будущем 1 июля станет для ветеранов боевых действий на всей территории России официальным праздником», – отметил Сергей Липовой',
-        data: ''
+        data: '22.05.2022'
     },
     {
         img: two,
         alt: '«ОФИЦЕРЫ РОССИИ» ПРОВЕЛИ АВТОПРОБЕГ «ДОРОГАМИ ПАМЯТИ»',
         title: '«ОФИЦЕРЫ РОССИИ» ВОЗЛОЖИЛИ ВЕНОК И ЦВЕТЫ К МОГИЛЕ НЕИЗВЕСТНОГО СОЛДАТА',
         desc: 'Председатель Президиума организации Герой России Сергей Липовой поблагодарил депутатов регионального парламента за поддержку инициативы о включении Дня ветеранов боевых действий в перечень памятных дат Курской области. Эта инициатива Общероссийской организации «ОФИЦЕРЫ РОССИИ» была поддержана главой региона Романом Старовойтом и депутатами областной Думы. Как известно, 1 июля в России отмечается День ветеранов боевых действий. Пока он не имеет официального статуса, но во многих регионах идея проведения памятных мероприятий в этот день находит поддержку властей.',
-        data: ''
+        data: '15.03.2021'
     },
     {
         img: three,
         alt: '«ОФИЦЕРЫ РОССИИ» ПРОВЕЛИ АВТОПРОБЕГ «ДОРОГАМИ ПАМЯТИ»',
         title: '«ОФИЦЕРЫ РОССИИ» ПРОВЕЛИ АВТОПРОБЕГ «ДОРОГАМИ ПАМЯТИ»',
         desc: 'В делегацию, которую возглавил председатель Президиума «ОФИЦЕРОВ РОССИИ» Герой России генерал-майор Сергей Липовой, вошли председатель Совета мужества и отваги Герой Советского Союза Владимир Горовой, председатель Совета по патриотическому воспитанию Герой России Александр Головашкин, председатель Совета отечественных производителей в сфере обороны и безопасности Герой Социалистического труда',
-        data: ''
+        data: '06.06.2023'
     },
     {
         img: four,
         alt: '«ОФИЦЕРЫ РОССИИ» ПРОВЕЛИ ОЧЕРЕДНУЮ ПАТРИОТИЧЕСКУЮ АКЦИЮ «ДЕСАНТ ГЕРОЕВ» В КУРСКОЙ ОБЛАСТИ',
         title: '«ОФИЦЕРЫ РОССИИ» ПРОВЕЛИ ОЧЕРЕДНУЮ ПАТРИОТИЧЕСКУЮ АКЦИЮ «ДЕСАНТ ГЕРОЕВ» В КУРСКОЙ ОБЛАСТИ',
         desc: 'С 6 по 8 июня Общероссийская организация «ОФИЦЕРЫ РОССИИ» при поддержке группы компаний «Курский аккумуляторный завод» провела очередную патриотическую акцию «Десант Героев» в Курской области.',
-        data: ''
+        data: '18.12.2020'
     }
 ]
 
@@ -121,8 +121,8 @@ const team = [
         desc: 'Задача общественной приемной – защита прав и законных интересов военнослужащих, сотрудников правоохранительных, других силовых и контрольно-надзорных ведомств, членов их семей и ветеранов'
     },
 ]
-
-let activeEvent = events[0]
+let currentIndex = 0;
+let activeEvent = events[currentIndex];
 let isDragging = false;
 let startX, startScrollLeft, timeoutId;
 let x1 = null;
@@ -171,50 +171,63 @@ export const display = function () {
                 </div>
             </main>
 
-            <section class="events">
-                <div class="container">
-                    <div class="events_inner">
-                        <div class="event_main">
-                            <div class="event_img">
-                                <img src={activeEvent.img}></img>
-                            </div>
-                            <span class="event_title">{activeEvent.title}</span>
-                            <p class="event_info_text event_main_text">{activeEvent.desc}</p>
-                        </div>
-                        <div class="event_list">
-                            {
-                                events.map((item, index) => {
-                                    return (
-                                        <div
-                                            class="event_list_item"
-                                            onclick={() => {
-                                                activeEvent = events[index]
-                                                this.init()
-                                            }}
-                                        >
-                                            <div class="event_img">
-                                                <img src={item.img}></img>
-                                            </div>
-                                            <div class="event_info">
-                                                <span class="event_title">{item.title}</span>
-                                                <p class="event_info_text">{item.desc}</p>
-                                                <span>05.05.1969 г.</span>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
+            <section class="slider">
+                <div
+                    class="slider_wrap"
+                    onWheel={(e) => {
+                        console.log('=a376d4=', e)
+                        if (e.deltaY < 0) {
+                            if (activeEvent == events[0]) return
+                            currentIndex--;
+                            activeEvent = events[currentIndex];
+                        } else if (e.deltaY > 0) {
+                            if (activeEvent == events[events.length - 1]) return
+                            currentIndex++;
+                            activeEvent = events[currentIndex];
+                        }
+                        this.init()
+                    }}
+                >
 
+                    <div
+                        class="slider_item"
+                        ref="slide"
+                    >
+                        <div class="slider_img">
+                            <img src={activeEvent.img} alt={activeEvent.alt} />
+                        </div>
+                        <div class="slider_content">
+                            <span class="slider_data">{activeEvent.data}</span>
+                            <div class="slider_title">{activeEvent.title}</div>
+                            <div class="slider_desc">{activeEvent.desc}</div>
+                            <a href="#" class="btn">
+                                <span>Подробнее</span>
+                                <span class="pseudo"></span>
+                            </a>
                         </div>
                     </div>
-                    <div class="wrap_btn">
-                        <a href="/show/" class="btn mt-15" onclick={this.Fn.link}>
-                            <span>Подробнее</span>
-                            <span class="pseudo"></span>
-                        </a>
-                    </div>
+
                 </div>
-
+                <div class="slider_pagination">
+                    {
+                        events.map((item, index) => {
+                            return (
+                                <span
+                                    class={["slider_pagination-bullet",
+                                        activeEvent == events[index] ? "slider_pagination-bullet_active" : null]}
+                                    onclick={() => {
+                                        activeEvent = events[index];
+                                        this.init();
+                                    }}
+                                >
+                                </span>
+                            )
+                        })
+                    }
+                    {/* <span class="slider_pagination-bullet"></span>
+                    <span class="slider_pagination-bullet slider_pagination-bullet_active"></span>
+                    <span class="slider_pagination-bullet"></span> */}
+                </div>
             </section>
 
             <section class="form">
@@ -300,7 +313,10 @@ export const display = function () {
                             {
                                 team.map((item, index) => {
                                     return (
-                                        <div class="team_item" ref="slide">
+                                        <div
+                                            class="team_item"
+                                            ref="slide"
+                                        >
                                             <img class="team_item-img" src={item.photo}></img>
                                             <div class="team_overlay">
                                                 <h3 class="team_title">{item.name}</h3>
