@@ -85,6 +85,11 @@ $indent in $indents {
   height: 51px;
   margin-bottom: 20px;
   background: url('images/title-after.png') 0 0/contain no-repeat;
+
+  @media(max-width: 464px) {
+    width: 200px;
+    margin-bottom: 0;
+  }
 }
 
 // grid
@@ -124,7 +129,7 @@ $indent in $indents {
   margin: 20px 0;
 
   @media(max-width: 464px) {
-    font-size: 24px;
+    font-size: 21px;
     line-height: 30px;
   }
 
@@ -153,8 +158,34 @@ $indent in $indents {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--white);
-  padding: 25px;
+  background-color: #d7be78;
+  padding: 80px;
+  position: relative;
+}
+
+.uzor {
+  position: absolute;
+  width: 100px;
+
+  &_lt {
+    top: 15px;
+    left: 15px;
+  }
+
+  &_rt {
+    right: 15px;
+    top: 15px;
+  }
+
+  &_lb {
+    left: 15px;
+    bottom: 15px;
+  }
+
+  &_rb {
+    right: 15px;
+    bottom: 15px;
+  }
 }
 
 .wrap_btn {
@@ -309,4 +340,20 @@ $indent in $indents {
   width: 100px;
   right: 0;
   top: 0;
+}
+
+.disable_scroll {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.papyrus {
+  background-image: url('images/background/papyrus2.png');
+  // background-image: url('images/background/result.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 600px;
+  display: flex;
+  align-items: center;
 }

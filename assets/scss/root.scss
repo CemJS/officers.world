@@ -35,6 +35,9 @@ body {
 
     #app {
         min-height: var(--app-height);
+        display: flex;
+        flex-direction: column;
+        flex-grow: 0 1 0;
         // display: grid;
         // grid-template-rows: auto 1fr auto;
     }

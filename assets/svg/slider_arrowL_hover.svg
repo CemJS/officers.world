@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="51" height="51" fill="none" viewBox="0 0 51 51">
+  <path fill="#8C1C28" stroke="#8C1C28" d="M49.774 25.24 25.24.708.706 25.241 25.24 49.775z"/>
+  <path fill="#fff" d="M12.127 25.354a.5.5 0 0 1 0-.708l3.182-3.181a.5.5 0 1 1 .707.707L13.188 25l2.828 2.828a.5.5 0 1 1-.707.707l-3.182-3.181Zm13.353.146h-13v-1h13v1Z"/>
+  <circle r="1.571" stroke="#fff" transform="matrix(-1 0 0 1 38.409 25.214)"/>
+  <circle r="2.262" stroke="#fff" transform="matrix(-1 0 0 1 31.504 25.214)"/>
+</svg>

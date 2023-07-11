@@ -28,15 +28,22 @@ export const display = function () {
                             <span class="header_title">Офицеры и солдаты мира</span>
                         </div>
 
-                        <div class="footer_socials">
-                            <img src={telegram} alt="Telegram" />
-                            <img src={email} alt="Email" />
-                            <img src={phone} alt="Phone" />
-                            <img src={inst} alt="Instagram" />
-                            <img src={youtube} alt="Youtube" />
-                            <img src={twitter} alt="Twitter" />
-                            <img src={vk} alt="Vkontakte" />
+                        <span class="footer_info">Copyright © 2023</span>
+
+                        <div class="footer_contacts">
+                            <div class="footer_socials">
+                                <a href="#"><img src={telegram} alt="Telegram" /></a>
+                                <a href="#"><img src={email} alt="Email" /></a>
+                                <a href="#"><img src={phone} alt="Phone" /></a>
+                                <a href="#"><img src={inst} alt="Instagram" /></a>
+                                <a href="#"><img src={youtube} alt="Youtube" /></a>
+                                <a href="#"><img src={twitter} alt="Twitter" /></a>
+                                <a href="#"><img src={vk} alt="Vkontakte" /></a>
+                            </div>
+                            <a href="mailto:example@gmsil.com">example@gmsil.com</a>
+                            <a href="tel:+74952294280">+74952294280</a>
                         </div>
+
                     </div>
                 </div>
             </footer>

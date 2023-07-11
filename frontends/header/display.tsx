@@ -1,9 +1,7 @@
 import { Cemjsx } from "cemjs-all"
-import lenta from '@images/logo/lenta.gif'
 import logo from '@svg/logo4.svg'
-import phone from '@svg/social/phone.svg'
-import email from '@svg/social/email.svg'
-
+import uzor_lt from '@svg/pattern/uzor_darkLT.svg'
+import uzor_rt from '@svg/pattern/uzor_darkRT.svg'
 
 export const display = function () {
 
@@ -12,9 +10,11 @@ export const display = function () {
             <header class="header">
                 <div class="container">
                     <div class="header_inner">
-                        <a href='/' onclick={this.Fn.link} class="header_logo">
+                        <img src={uzor_lt} class="uzor uzor_lt" />
+                        <img src={uzor_rt} class="uzor uzor_rt" />
+                        {/* <a href='/' onclick={this.Fn.link} class="header_logo">
                             <img src={logo}></img>
-                        </a>
+                        </a> */}
                         <div class="header_menu menu">
                             <div
                                 class="menu_icon"
@@ -32,27 +32,36 @@ export const display = function () {
                             <div class="header_nav" ref="menu">
                                 <span class="header_title">
                                     офицеры и солдаты мира
-                                    <div class="lenta">
+                                    {/* <div class="lenta">
                                         <img src={lenta}></img>
-                                    </div>
+                                    </div> */}
                                 </span>
+                                <a href='/' onclick={this.Fn.link} class="header_logo">
+                                    <img src={logo}></img>
+                                </a>
                                 <nav>
                                     <ul class="header_list">
-                                        <li class="header_list_item">События</li>
-                                        <li class="header_list_item">Сотрудники</li>
-                                        <li class="header_list_item">Мероприятия</li>
-                                        <li class="header_list_item"><a href="/contacts/" onclick={this.Fn.link}>Контакты</a></li>
+                                        {/* <li class="header_list_item">События</li> */}
+                                        <li class="header_list_item">
+                                            <a href="/staffing/" onclick={this.Fn.link}>Сотрудники</a>
+                                        </li>
+                                        <li class="header_list_item">
+                                            <a href="/show/" onclick={this.Fn.link}>Мероприятия</a>
+                                        </li>
+                                        <li class="header_list_item">
+                                            <a href="/contacts/" onclick={this.Fn.link}>Контакты</a>
+                                        </li>
                                     </ul>
                                 </nav>
 
-                                <div class="socials">
+                                {/* <div class="socials">
                                     <a class="socials_item" href="mailto:example@gmsil.com">
                                         <img src={email}></img>
                                     </a>
                                     <a class="socials_item" href="tel:+74952294280">
                                         <img src={phone}></img>
                                     </a>
-                                </div>
+                                </div> */}
                             </div>
 
                         </div>

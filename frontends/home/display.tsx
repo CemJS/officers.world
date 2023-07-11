@@ -11,8 +11,6 @@ import one from '@images/events/1.png'
 import two from '@images/events/2.jpg'
 import three from '@images/events/3.jpg'
 import four from '@images/events/4.jpg'
-import arrowPrev from '@svg/arrow_prev.svg'
-import arrowNext from '@svg/arrow_next.svg'
 
 import rogozhkin from '@images/team/rogozhkin.jpg'
 import bagryancev from '@images/team/bagryancev.jpg'
@@ -23,6 +21,11 @@ import zarembinskaya from '@images/team/zarembinskaya.jpg'
 import golovashkin from '@images/team/golovashkin.jpg'
 import bashtanuk from '@images/team/bashtanuk.jpeg'
 import grigoryev from '@images/team/grigoryev.jpeg'
+
+import uzor_lt from '@svg/pattern/uzor_lt.svg'
+import uzor_rt from '@svg/pattern/uzor_rt.svg'
+import uzor_lb from '@svg/pattern/uzor_lb.svg'
+import uzor_rb from '@svg/pattern/uzor_rb.svg'
 
 
 const events = [
@@ -130,7 +133,6 @@ let y1 = null;
 
 
 export const display = function () {
-
     return (
         <div>
 
@@ -142,38 +144,72 @@ export const display = function () {
                     </div>
                     <div class="appeal_wrap">
                         <div class="appeal">
-                            <div class="appeal_item">
+                            <div class="papyrus">
                                 <figure class="wrap_quote">
                                     <blockquote class="quote">
                                         <p class="text">
-                                            <span class="letter">«ОФИЦЕРЫ И СОЛДАТЫ МИРА»</span> работают во благо страны и общества. Одна из ключевых задач организации – консолидация ветеранов всех служб, вне зависимости от ведомственной принадлежности, объединение их потенциала с действующими офицерами и гражданами в целях системного решения задач, важных для государства и общества в сфере повышения уровня безопасности граждан и обороноспособности страны.
-
-                                            Членами организации и сподвижниками стали более 300 тысяч человек, проведено более пяти тысяч мероприятий, участие в которых приняли свыше миллиона граждан! Общими усилиями удалось решить много значимых проблем, огромному числу людей оказана реальная помощь и поддержка.
+                                            <span class="letter">Россия</span> снова встала на защиту всего Мира !!! <br></br>
+                                            Сатанисты захватывают целые страны , уничтожают непокорные им народы ,
+                                            ведут информационную войну , разрушают семейные ценности, традиции народов.
+                                            Сатанинское правительство признающее только силу и разбой должно быть сломлено , всесокрушающей силой свободолюбивых народов , в ряду которых российский народ выполняет свою великую освободительную задачу !  Товарищи офицеры и солдаты всего мира Давайте объединяться , не дадим сатанинскому и фашистскому режиму войти в наши  дома . Сохраним мир любовь и свободу на нашей земле. Да будет так!
                                         </p>
                                     </blockquote>
-                                    <figcaption>— Анатолий Румынов, Офицеры Мира </figcaption>
+                                    <figcaption>— Пиваев Вадим Вадимович, Офицеры и солдаты Мира </figcaption>
                                 </figure>
                             </div>
                             <div class="appeal_item appeal_user">
                                 <img src={officer}></img>
                             </div>
                         </div>
-                        <div class="appeal_item appeal_goal">
+                        {/* <div class="appeal_item appeal_goal">
                             <h2 class="appeal_title">Основные направления деятельности организации «ОФИЦЕРЫ И СОЛДАТЫ МИРА»:</h2>
                             <ul class="goal_list">
                                 <li class="goal_list_item">Защита прав офицеров и членов их семей</li>
                                 <li class="goal_list_item">Патриотическое воспитание и правовое просвещение населения</li>
                                 <li class="goal_list_item">Укрепление правопорядка и обороноспособности страны</li>
                             </ul>
-                        </div>
+                        </div> */}
                     </div>
 
                 </div>
             </main>
 
-            <section class="slider">
+            <section
+                class="slider"
+                onmouseenter={() => {
+                    this.Static.body.classList.add('disable_scroll');
+                }}
+                onmouseleave={() => {
+                    this.Static.body.classList.remove('disable_scroll');
+                }}
+                ontouchstart={(e) => {
+                    console.log('=d004e1=', e)
+                    const firstTouch = e.touches[0];
+                    x1 = firstTouch.clientX;
+                    y1 = firstTouch.clientY;
+                }}
+                ontouchmove={(e) => {
+                    if (!x1 || !y1) return false;
+                    let x2 = e.touches[0].clientX;
+                    let y2 = e.touches[0].clientY;
+                    let xDiff = x2 - x1;
+                    let yDiff = y2 - y1;
+
+                    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+                        if (xDiff > 0) {
+                            this.Ref.sliderWrap.scrollLeft -= this.Ref.slide.offsetWidth + 20;
+                        }
+                        else {
+                            this.Ref.sliderWrap.scrollLeft += this.Ref.slide.offsetWidth + 20;
+                        }
+                    }
+                    x1 = null;
+                    y1 = null;
+                }}
+            >
                 <div
                     class="slider_wrap"
+                    ref="sliderWrap"
                     onWheel={(e) => {
                         console.log('=a376d4=', e)
                         if (e.deltaY < 0) {
@@ -236,9 +272,13 @@ export const display = function () {
                         <div class="form_item">
                             <h2 class="form_titlef">Общественная организация "ОФИЦЕРЫ И СОЛДАТЫ РОССИИ"</h2>
                             <div class="default_block">
+                                <img src={uzor_lt} class="uzor uzor_lt" />
+                                <img src={uzor_rt} class="uzor uzor_rt" />
                                 <p class="text">
                                     <span class="letter">«ОФИЦЕРЫ И СОЛДАТЫ РОССИИ»</span> работают во благо страны и общества. Одна из ключевых задач организации – консолидация ветеранов всех служб, вне зависимости от ведомственной принадлежности, объединение их потенциала с действующими офицерами и гражданами в целях системного решения задач, важных для государства и общества в сфере повышения уровня безопасности граждан и обороноспособности страны.
                                 </p>
+                                <img src={uzor_lb} class="uzor uzor_lb" />
+                                <img src={uzor_rb} class="uzor uzor_rb" />
                             </div>
                         </div>
                         <div class="form_item">
@@ -263,11 +303,9 @@ export const display = function () {
                         <div
                             class="team_button team_button_prev"
                             onclick={() => {
-                                this.Ref.teamCarousel.scrollLeft -= this.Ref.slide.offsetWidth + 20;
+                                this.Ref.teamCarousel.scrollLeft -= this.Ref.slideTeam.offsetWidth + 20;
                             }}
-                        >
-                            <img src={arrowPrev}></img>
-                        </div>
+                        ></div>
                         <div
                             class="team_carousel"
                             ref="teamCarousel"
@@ -300,10 +338,10 @@ export const display = function () {
 
                                 if (Math.abs(xDiff) > Math.abs(yDiff)) {
                                     if (xDiff > 0) {
-                                        this.Ref.teamCarousel.scrollLeft -= this.Ref.slide.offsetWidth + 20;
+                                        this.Ref.teamCarousel.scrollLeft -= this.Ref.slideTeam.offsetWidth + 20;
                                     }
                                     else {
-                                        this.Ref.teamCarousel.scrollLeft += this.Ref.slide.offsetWidth + 20;
+                                        this.Ref.teamCarousel.scrollLeft += this.Ref.slideTeam.offsetWidth + 20;
                                     }
                                 }
                                 x1 = null;
@@ -315,7 +353,7 @@ export const display = function () {
                                     return (
                                         <div
                                             class="team_item"
-                                            ref="slide"
+                                            ref="slideTeam"
                                         >
                                             <img class="team_item-img" src={item.photo}></img>
                                             <div class="team_overlay">
@@ -330,11 +368,9 @@ export const display = function () {
                         <div
                             class="team_button team_button_next"
                             onclick={() => {
-                                this.Ref.teamCarousel.scrollLeft += this.Ref.slide.offsetWidth + 20;
+                                this.Ref.teamCarousel.scrollLeft += this.Ref.slideTeam.offsetWidth + 20;
                             }}
-                        >
-                            <img src={arrowNext}></img>
-                        </div>
+                        ></div>
 
                     </div>
                     <div class="wrap_btn">
