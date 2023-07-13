@@ -1,1 +1,30 @@
 @import 'utils/variables.scss';
+
+.contacts {
+  padding-top: 30px;
+  height: var(--app-height);
+
+  &_inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  &_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--primaryText);
+    height: 200px;
+    transition: 0.09s linear;
+
+    img {
+      width: 40px;
+    }
+
+    // &:hover {
+    //   transform: perspective(600px) rotateY(180deg);
+    // }
+  }
+}

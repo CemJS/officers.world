@@ -1,5 +1,5 @@
 import { Cemjsx } from "cemjs-all"
-import logo from '@svg/logo4.svg'
+import logo from '@images/logo/logoFinish.png'
 import uzor_lt from '@svg/pattern/uzor_darkLT.svg'
 import uzor_rt from '@svg/pattern/uzor_darkRT.svg'
 

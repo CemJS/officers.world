@@ -32,10 +32,11 @@
     &_logo {
         z-index: 10;
         position: relative;
-        transform: translateX(50%);
+        width: 150px;
+        // transform: translateX(50%);
 
         img {
-            width: 85px;
+            width: 100%;
         }
     }
 

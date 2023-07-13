@@ -19,10 +19,10 @@
       ]
     },
     {
-      "url": "/show/",
+      "url": "/events/",
       "front": [
         "header",
-        "show",
+        "events",
         "footer"
       ]
     },
