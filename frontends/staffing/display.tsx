@@ -84,10 +84,7 @@ export const display = function () {
                                         <img src={item.photo} />
                                     </div>
                                     <div class="staffing_info">
-                                        <div class="staffing_title-wrap">
-                                            <h3 class="staffing_title">{item.name}</h3>
-                                            {/* <img src={pattern} class="staffing_pattern" /> */}
-                                        </div>
+                                        <h3 class="staffing_title">{item.name}</h3>
                                         <span class="staffing_post">{item.post}</span>
                                         <p class="staffing_desc">{item.desc}</p>
                                     </div>

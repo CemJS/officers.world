@@ -43,10 +43,10 @@ export const display = function () {
                                     <ul class="header_list">
                                         {/* <li class="header_list_item">События</li> */}
                                         <li class="header_list_item">
-                                            <a href="/staffing/" onclick={this.Fn.link}>Сотрудники</a>
+                                            <a href="/staffing/" onclick={this.Fn.link}>Члены организации</a>
                                         </li>
                                         <li class="header_list_item">
-                                            <a href="/show/" onclick={this.Fn.link}>Мероприятия</a>
+                                            <a href="/events/" onclick={this.Fn.link}>Мероприятия</a>
                                         </li>
                                         <li class="header_list_item">
                                             <a href="/contacts/" onclick={this.Fn.link}>Контакты</a>

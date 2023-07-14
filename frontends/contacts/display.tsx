@@ -54,12 +54,9 @@ export const display = function () {
                     {
                         contacts.map((item, index) => {
                             return (
-                                <div class="contacts_item ">
-                                    <div>
-
-                                    </div>
+                                <a href="/" target="_blank" class="contacts_item ">
                                     <img src={item.src} alt={item.alt}></img>
-                                </div>
+                                </a>
                             )
                         })
                     }

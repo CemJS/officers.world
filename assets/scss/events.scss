@@ -1,10 +1,11 @@
 @import 'utils/variables.scss';
 
 .gallery {
-  max-width: 600px;
+  // margin-left: 25px;
+  // max-width: 400px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  // gap: 25px;
 
   &_main-img {
     width: 100%;
@@ -93,4 +94,42 @@
     right: -70px;
   }
 
+}
+
+.event_inner {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.event {
+  display: flex;
+  position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  // padding: 25px;
+
+  &_img {
+    height: 450px;
+    float: left;
+
+    img {
+      height: 100%;
+    }
+  }
+
+  &_info {
+    padding: 25px;
+
+  }
+
+  &_data {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+.event_gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
