@@ -95,12 +95,29 @@ const galleryChildren = [
     },
 ]
 
+const galleryDuma = [
+    {
+        src: "/assets/images/events/1/1.jpg",
+        alt: 'Event'
+    },
+    {
+        src: '/assets/images/events/2/2.jpg',
+        alt: 'Event'
+    },
+    {
+        src: '/assets/images/events/3/3.jpg',
+        alt: 'Event'
+    },
+]
+
 let activeImgYourSelf = galleryYourSelf[0];
 let activeImgSirius = gallerySirius[0];
 let activeImgChildren = galleryChildren[0];
+let activeImgDuma = galleryDuma[0];
 let isDraggingYourSelf, startXYourSelf, startScrollLeftYourSelf;
 let isDraggingSirius, startXSirius, startScrollLeftSirius;
 let isDraggingChildren, startXChildren, startScrollLeftChildren;
+let isDraggingDuma, startXDuma, startScrollLeftDuma;
 
 export const display = function () {
 
@@ -434,6 +451,88 @@ export const display = function () {
 
                     </div>
                     <span class="event_data">18 мая 2023г.</span>
+                </section>
+                <section class="event">
+                    <div class="event_img">
+                        <img src="/assets/images/events/3/1.jpg"></img>
+                    </div>
+                    <div class="event_info">
+                        <h3 class="event_title">Пленарное заседание Второй международной парламентской конференции «Россия — Африка»!Государственная Дума</h3>
+                        <p>Проведены переговоры с делегацией из Ирана, договорились о сотрудничестве. Department of Information and Communication Technology.</p>
+
+                    </div>
+                    <span class="event_data">26 апреля 2023г.</span>
+                </section>
+                <section class="event event_gallery">
+                    <div class="gallery">
+                        <div class="gallery_main-img">
+                            <img src={activeImgDuma.src} />
+                        </div>
+                        <div class="gallery_nav">
+                            <button
+                                type="button"
+                                class="gallery_button gallery_button-prev"
+                                onclick={() => {
+                                    this.Ref.galleryListDuma.scrollLeft -= this.Ref.gallerySlideDuma.offsetWidth + 10;
+                                    this.init();
+                                }}
+                            >
+                                top
+                            </button>
+                            <div class="list_wrap">
+                                <ul
+                                    class="gallery_list"
+                                    ref="galleryListDuma"
+                                    onmousedown={(e) => {
+                                        isDraggingDuma = true;
+                                        startXDuma = e.pageX;
+                                        startScrollLeftDuma = this.Ref.galleryListDuma.scrollLeft;
+                                    }}
+                                    onmousemove={(e) => {
+                                        if (!isDraggingChildren) return;
+                                        e.preventDefault();
+                                        this.Ref.galleryListDuma.scrollLeft = startScrollLeftDuma - (e.pageX - startXDuma);
+                                    }}
+                                    onmouseup={(e) => {
+                                        isDraggingDuma = false;
+                                    }}
+                                >
+                                    {
+                                        galleryDuma.map((item, index) => {
+                                            return (
+                                                <li
+                                                    class={["gallery_slide", activeImgChildren == galleryDuma[index] ? "gallery_slide-active" : null]}
+                                                    ref="gallerySlideDuma"
+                                                    onclick={() => {
+                                                        activeImgDuma = galleryDuma[index];
+                                                        this.init()
+                                                    }}
+                                                >
+                                                    <img src={item.src} />
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="gallery_button gallery_button-next"
+                                onclick={() => {
+                                    this.Ref.galleryListDuma.scrollLeft += this.Ref.gallerySlideDuma.offsetWidth + 10;
+                                    this.init();
+                                }}
+                            >
+                                down
+                            </button>
+                        </div>
+                    </div>
+                    <div class="event_info">
+                        <h3>Детское мероприятие «Безопасное колесо 2023»</h3>
+                        <p>Совместно с  ГОСАВТОИНСПЕКЦИЕЙ ГОРОДА СОЧИ провели для детей мероприятие под названием  «Безопасное колесо 2023»</p>
+                    </div>
+                    <span class="event_data">26 мая 2023г.</span>
                 </section>
             </div>
 
