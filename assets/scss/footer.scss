@@ -30,8 +30,11 @@
   }
 
   &_logo {
+    width: 150px;
+
     img {
-      width: 85px;
+      // width: 85px;
+      width: 100%;
     }
   }
 
@@ -62,11 +65,11 @@
       padding: 15px;
     }
 
-    &_logo {
-      img {
-        width: 70px;
-      }
-    }
+    // &_logo {
+    //   img {
+    //     width: 70px;
+    //   }
+    // }
 
     &_socials {
       padding-top: 10px;

@@ -3,9 +3,11 @@
 .gallery {
   // margin-left: 25px;
   // max-width: 400px;
+  position: relative;
   display: flex;
   flex-direction: column;
   // gap: 25px;
+  overflow: hidden;
 
   &_main-img {
     width: 100%;
@@ -19,8 +21,9 @@
     align-items: center;
 
     img {
-      width: auto;
+      width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -79,19 +82,12 @@
     }
   }
 
-  &_button {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    z-index: 2;
+  .team_button_prev {
+    left: 15px;
   }
 
-  &_button-prev {
-    left: -70px;
-  }
-
-  &_button-next {
-    right: -70px;
+  .team_button_next {
+    right: 15px;
   }
 
 }
@@ -117,6 +113,8 @@
 
     img {
       height: 100%;
+      width: 100%;
+      object-fit: cover;
     }
   }
 
@@ -135,4 +133,88 @@
 .event_gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+}
+
+.event_carousel {
+  position: relative;
+  overflow: hidden;
+
+  // max-width: 500px;
+
+  .event_track {
+    position: relative;
+    display: flex;
+    white-space: nowrap;
+    font-size: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: 0;
+    transition: all 0.4s linear;
+  }
+
+  .event_image {
+    // height: 450px;
+
+    img {
+      // height: 100%;
+      // height: auto;
+      // width: 100%;
+      object-fit: contain;
+      scroll-snap-align: start;
+      overflow: hidden;
+      transition: all 0.4s linear;
+    }
+  }
+}
+
+.galleryWrapEvent {
+  position: relative;
+
+  .galleryEventArrow {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .galleryEvent {
+    display: flex;
+
+    .galleryEventSlide {
+      width: 400px;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+
+  }
+
+}
+
+@media (max-width: 1299px) {
+  .event_inner {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  .event_title {
+    font-size: 16px;
+  }
+
+  .event_text {
+    font-size: 14px;
+  }
+}
+
+@media(max-width: 767px) {
+  .event_gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery_main-img {
+    height: 350px;
+  }
 }

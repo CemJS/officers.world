@@ -34,6 +34,7 @@
         position: relative;
         width: 150px;
         // transform: translateX(50%);
+        background: url('images/logo/logoFinish.png');
 
         img {
             width: 100%;
@@ -52,7 +53,8 @@
             width: 65px;
 
             @media(max-width: 464px) {
-                width: 45px;
+                // width: 45px;
+                display: none;
             }
         }
     }

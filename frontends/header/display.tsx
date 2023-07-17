@@ -30,12 +30,10 @@ export const display = function () {
                                 <span></span>
                             </div>
                             <div class="header_nav" ref="menu">
-                                <span class="header_title">
+                                {/* <span class="header_title">
                                     офицеры и солдаты мира
-                                    {/* <div class="lenta">
-                                        <img src={lenta}></img>
-                                    </div> */}
-                                </span>
+
+                                </span> */}
                                 <a href='/' onclick={this.Fn.link} class="header_logo">
                                     <img src={logo}></img>
                                 </a>
@@ -62,6 +60,15 @@ export const display = function () {
                                         <img src={phone}></img>
                                     </a>
                                 </div> */}
+                                <div class="socials_mobile">
+                                    <a href="#"></a>
+                                    <a href="#"></a>
+                                    <a href="#"></a>
+                                    <a href="#"></a>
+                                    <a href="#"></a>
+                                    <a href="#"></a>
+                                    <a href="#"></a>
+                                </div>
                             </div>
 
                         </div>

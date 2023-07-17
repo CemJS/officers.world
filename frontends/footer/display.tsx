@@ -1,5 +1,5 @@
 import { Cemjsx } from "cemjs-all"
-import logo from '@svg/logo4.svg'
+import logo from '@images/logo/logoFinish.png'
 import phone from '@svg/social/phone.svg'
 import email from '@svg/social/email.svg'
 
@@ -25,7 +25,7 @@ export const display = function () {
                             <div class="footer_logo">
                                 <img src={logo} alt="Офицеры и солдаты мира" />
                             </div>
-                            <span class="header_title">Офицеры и солдаты мира</span>
+                            {/* <span class="header_title">Офицеры и солдаты мира</span> */}
                         </div>
 
                         <span class="footer_info">Copyright © 2023</span>
