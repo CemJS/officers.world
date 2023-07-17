@@ -52,7 +52,7 @@
         .uzor {
             width: 65px;
 
-            @media(max-width: 464px) {
+            @media(max-width: 767px) {
                 // width: 45px;
                 display: none;
             }
@@ -169,8 +169,19 @@
     }
 }
 
+@media (max-width: 1299px){
+    .header_inner{
+        padding: 0 75px 0 40px;
+    }
+}
+
 @media(max-width: 767px) {
     .header {
+
+        &_inner{
+            padding: 0 25px;
+        }
+
         .flag {
             display: none;
         }
@@ -178,6 +189,14 @@
         &_menu {
             position: relative;
         }
+
+        &_logo{
+            position: fixed;
+            top: 5px;
+            left: 25px;
+            z-index: 15;
+            width: 130px;
+}
 
         &_title {
             .lenta {

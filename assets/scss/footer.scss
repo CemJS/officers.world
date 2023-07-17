@@ -27,6 +27,7 @@
   &_logo_wrap {
     display: flex;
     align-items: center;
+    grid-area: footerLogo;
   }
 
   &_logo {
@@ -38,11 +39,16 @@
     }
   }
 
+  &_info{
+    grid-area: footerInfo;
+  }
+
   &_contacts {
     display: flex;
     flex-direction: column;
     align-items: end;
     gap: 20px;
+    grid-area: footerContacts;
   }
 
   &_socials {
@@ -52,6 +58,41 @@
 
     img {
       height: 25px;
+    }
+  }
+
+  @media(max-width: 767px){
+    .footer{
+
+      &_inner{
+        display: grid;
+        grid-template-areas: 
+          'footerLogo footerContacts'
+          'footerInfo footerContacts';
+        padding: 15px;
+      }
+
+      &_info{
+        font-size: 16px;
+      }
+
+      &_contacts{
+        gap: 10px;
+
+        a{
+          font-size: 16px;
+        }
+      }
+
+      &_logo{
+        width: 130px;
+      }
+
+      &_socials{
+        img{
+          width: 20px;
+        }
+      }
     }
   }
 

@@ -60,7 +60,7 @@ export const display = function () {
                                         <img src={phone}></img>
                                     </a>
                                 </div> */}
-                                <div class="socials_mobile">
+                                {/* <div class="socials_mobile">
                                     <a href="#"></a>
                                     <a href="#"></a>
                                     <a href="#"></a>
@@ -68,7 +68,7 @@ export const display = function () {
                                     <a href="#"></a>
                                     <a href="#"></a>
                                     <a href="#"></a>
-                                </div>
+                                </div> */}
                             </div>
 
                         </div>
