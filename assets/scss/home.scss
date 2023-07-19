@@ -19,6 +19,7 @@
         position: relative;
         display: flex;
         justify-content: center;
+        padding: 0;
 
         .appeal_goal {
             position: absolute;
@@ -125,16 +126,17 @@
 
 .team_carousel {
     display: flex;
-    gap: 20px;
-    white-space: nowrap;
     overflow: hidden;
+    gap: 20px;
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
     scrollbar-width: 0;
     transition: all 0.4s linear;
+    // white-space: nowrap;
 }
 
 .team_item {
+    display: block;
     height: 400px;
     // overflow: hidden;
     position: relative;
@@ -382,16 +384,18 @@
 @media(max-width: 767px) {
 
 
-    .main{
-        .appeal{
+    .main {
+        .appeal {
             grid-template-columns: 1fr;
         }
     }
+
     // events
     .events_inner {
         grid-template-columns: 1fr;
     }
-    .form_inner{
+
+    .form_inner {
         grid-template-columns: 1fr;
     }
 

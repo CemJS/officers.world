@@ -3,6 +3,52 @@ import logo from '@images/logo/logoFinish.png'
 import uzor_lt from '@svg/pattern/uzor_darkLT.svg'
 import uzor_rt from '@svg/pattern/uzor_darkRT.svg'
 
+import phone from '@svg/social/phone.svg'
+import email from '@svg/social/email.svg'
+import telegram from '@svg/social/telegram.svg'
+import vk from '@svg/social/vk.svg'
+import twitter from '@svg/social/twitter.svg'
+import inst from '@svg/social/instagram.svg'
+import youtube from '@svg/social/youtube.svg'
+
+const socials = [
+    {
+        src: telegram,
+        alt: 'Telegram Officers',
+        link: '/',
+    },
+    {
+        src: email,
+        alt: 'Email Officers',
+        link: '/',
+    },
+    {
+        src: phone,
+        alt: 'Phone Officers',
+        link: '/',
+    },
+    {
+        src: inst,
+        alt: 'Instagram Officers',
+        link: '/',
+    },
+    {
+        src: youtube,
+        alt: 'Youtube Officers',
+        link: '/',
+    },
+    {
+        src: twitter,
+        alt: 'Twitter Officers',
+        link: '/',
+    },
+    {
+        src: vk,
+        alt: 'Vkontakte Officers',
+        link: '/',
+    },
+]
+
 export const display = function () {
 
     return (
@@ -23,7 +69,6 @@ export const display = function () {
                                     this.Static.menuShow = !this.Static.menuShow
                                     this.Ref.menu.classList.toggle('active')
                                     this.Ref.burger.classList.toggle('active')
-                                    console.log(this.Static.menuShow);
                                     this.init();
                                 }}
                             >
@@ -39,14 +84,37 @@ export const display = function () {
                                 </a>
                                 <nav>
                                     <ul class="header_list">
-                                        {/* <li class="header_list_item">События</li> */}
-                                        <li class="header_list_item">
+                                        <li
+                                            class="header_list_item"
+                                            onclick={() => {
+                                                this.Static.menuShow = false;
+                                                this.Ref.menu.classList.remove('active')
+                                                this.Ref.burger.classList.remove('active')
+                                                this.init();
+                                            }}
+                                        >
                                             <a href="/staffing/" onclick={this.Fn.link}>Члены организации</a>
                                         </li>
-                                        <li class="header_list_item">
+                                        <li
+                                            class="header_list_item"
+                                            onclick={() => {
+                                                this.Static.menuShow = false;
+                                                this.Ref.menu.classList.remove('active')
+                                                this.Ref.burger.classList.remove('active')
+                                                this.init();
+                                            }}
+                                        >
                                             <a href="/events/" onclick={this.Fn.link}>Мероприятия</a>
                                         </li>
-                                        <li class="header_list_item">
+                                        <li
+                                            class="header_list_item"
+                                            onclick={() => {
+                                                this.Static.menuShow = false;
+                                                this.Ref.menu.classList.remove('active')
+                                                this.Ref.burger.classList.remove('active')
+                                                this.init();
+                                            }}
+                                        >
                                             <a href="/contacts/" onclick={this.Fn.link}>Контакты</a>
                                         </li>
                                     </ul>
@@ -60,15 +128,18 @@ export const display = function () {
                                         <img src={phone}></img>
                                     </a>
                                 </div> */}
-                                {/* <div class="socials_mobile">
+                                <div class="socials_mobile">
+                                    {
+                                        socials.map((item, index) => {
+                                            return (
+                                                <a href={item.link} target="_blank">
+                                                    <img src={item.src} alt={item.alt}></img>
+                                                </a>
+                                            )
+                                        })
+                                    }
                                     <a href="#"></a>
-                                    <a href="#"></a>
-                                    <a href="#"></a>
-                                    <a href="#"></a>
-                                    <a href="#"></a>
-                                    <a href="#"></a>
-                                    <a href="#"></a>
-                                </div> */}
+                                </div>
                             </div>
 
                         </div>
