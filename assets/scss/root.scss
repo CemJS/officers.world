@@ -31,14 +31,14 @@ body {
     background-attachment: fixed;
     background-size: cover;
     font-family: 'rus';
-    display: flex;
+    // display: flex;
 
     #app {
         min-height: var(--app-height);
         height: var(--app-height);
-        display: flex;
-        flex-direction: column;
-        flex: auto 1 auto;
+        // display: flex;
+        // flex-direction: column;
+        // flex: auto 1 auto;
         // display: grid;
         // grid-template-rows: auto 1fr auto;
     }

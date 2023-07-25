@@ -131,9 +131,9 @@ const team = [
 let currentIndex = 0;
 let activeEvent = events[currentIndex];
 let isDragging = false;
-let startX, startScrollLeft, timeoutId;
-let x1 = null;
-let y1 = null;
+let startX, startScrollLeft;
+let x1, a1 = null;
+let y1, b1 = null;
 
 
 export const display = function () {
@@ -149,12 +149,17 @@ export const display = function () {
                             <div class="papyrus">
                                 <figure class="wrap_quote">
                                     <blockquote class="quote">
-                                        <p class="text">
+                                        <p class="text mr-75 mb-15"><span class="letter">Россия</span> снова встала на защиту всего Мира !!! <br></br>
+                                            Сатанисты захватывают целые страны , уничтожают непокорные им народы ,
+                                            ведут информационную войну , разрушают семейные ценности, традиции народов.</p>
+                                        <p class="text">Сатанинское правительство признающее только силу и разбой должно быть сломлено , всесокрушающей силой свободолюбивых народов , в ряду которых российский народ выполняет свою великую освободительную задачу !  Офицеры и солдаты всего мира Давайте объединяться , не дадим сатанинскому и фашистскому режиму войти в наши  дома . Сохраним мир любовь и свободу на нашей земле. Да будет так!</p>
+
+                                        {/* <p class="text">
                                             <span class="letter">Россия</span> снова встала на защиту всего Мира !!! <br></br>
                                             Сатанисты захватывают целые страны , уничтожают непокорные им народы ,
                                             ведут информационную войну , разрушают семейные ценности, традиции народов.
                                             Сатанинское правительство признающее только силу и разбой должно быть сломлено , всесокрушающей силой свободолюбивых народов , в ряду которых российский народ выполняет свою великую освободительную задачу !  Офицеры и солдаты всего мира Давайте объединяться , не дадим сатанинскому и фашистскому режиму войти в наши  дома . Сохраним мир любовь и свободу на нашей земле. Да будет так!
-                                        </p>
+                                        </p> */}
                                     </blockquote>
                                     <figcaption>— Пиваев Вадим Вадимович, Офицеры и солдаты Мира </figcaption>
                                 </figure>
@@ -176,92 +181,101 @@ export const display = function () {
                 </div>
             </main>
 
-            <section
-                class="slider"
-                onmouseenter={() => {
-                    this.Static.body.classList.add('disable_scroll');
-                }}
-                onmouseleave={() => {
-                    this.Static.body.classList.remove('disable_scroll');
-                }}
-                ontouchstart={(e) => {
-                    console.log('=d004e1=', e)
-                    const firstTouch = e.touches[0];
-                    x1 = firstTouch.clientX;
-                    y1 = firstTouch.clientY;
-                }}
-                ontouchmove={(e) => {
-                    if (!x1 || !y1) return false;
-                    let x2 = e.touches[0].clientX;
-                    let y2 = e.touches[0].clientY;
-                    let xDiff = x2 - x1;
-                    let yDiff = y2 - y1;
 
-                    if (Math.abs(xDiff) > Math.abs(yDiff)) {
-                        if (xDiff > 0) {
-                            this.Ref.sliderWrap.scrollLeft -= this.Ref.slide.offsetWidth + 20;
-                        }
-                        else {
-                            this.Ref.sliderWrap.scrollLeft += this.Ref.slide.offsetWidth + 20;
-                        }
-                    }
-                    x1 = null;
-                    y1 = null;
-                }}
-            >
-                <div
-                    class="slider_wrap"
-                    ref="sliderWrap"
-                    onWheel={(e) => {
-                        console.log('=a376d4=', e)
-                        if (e.deltaY < 0) {
-                            if (activeEvent == events[0]) return
-                            currentIndex--;
-                            activeEvent = events[currentIndex];
-                        } else if (e.deltaY > 0) {
-                            if (activeEvent == events[events.length - 1]) return
-                            currentIndex++;
-                            activeEvent = events[currentIndex];
-                        }
-                        this.init()
-                    }}
-                >
-
+            <section class="events">
+                <div class="container">
+                    <div class="wrap-title">
+                        <h2 class="title">Встречи и мероприятия</h2>
+                    </div>
                     <div
-                        class="slider_item"
-                        ref="slide"
+                        class="slider"
+                        onmouseenter={() => {
+                            this.Static.body.classList.add('disable_scroll');
+                        }}
+                        onmouseleave={() => {
+                            this.Static.body.classList.remove('disable_scroll');
+                        }}
+                        ontouchstart={(e) => {
+                            const firstTouch = e.touches[0];
+                            a1 = firstTouch.clientX;
+                            b1 = firstTouch.clientY;
+                        }}
+                        ontouchmove={(e) => {
+                            if (!a1 || !b1) return false;
+                            let a2 = e.touches[0].clientX;
+                            let b2 = e.touches[0].clientY;
+                            let aDiff = a2 - a1;
+                            let bDiff = b2 - b1;
+
+                            if (Math.abs(aDiff) > Math.abs(bDiff)) {
+                                if (aDiff > 0) {
+                                    if (currentIndex == 0) return
+                                    currentIndex--;
+                                    activeEvent = events[currentIndex];
+                                }
+                                else {
+                                    console.log('=6a90ca=', "туть right")
+                                    if (activeEvent == events[events.length - 1]) return
+                                    currentIndex++;
+                                    activeEvent = events[currentIndex];
+                                }
+                            }
+                            a1 = null;
+                            b1 = null;
+                            this.init();
+                        }}
                     >
-                        <div class="slider_img">
-                            <img src={activeEvent.img} alt={activeEvent.alt} />
+                        <div
+                            class="slider_wrap"
+                            ref="sliderWrap"
+                            onWheel={(e) => {
+                                if (e.deltaY < 0) {
+                                    if (activeEvent == events[0]) return
+                                    currentIndex--;
+                                    activeEvent = events[currentIndex];
+                                } else if (e.deltaY > 0) {
+                                    if (activeEvent == events[events.length - 1]) return
+                                    currentIndex++;
+                                    activeEvent = events[currentIndex];
+                                }
+                                this.init()
+                            }}
+                        >
+
+                            <div class="slider_item" ref="slide">
+                                <div class="slider_img">
+                                    <img src={activeEvent.img} alt={activeEvent.alt} />
+                                </div>
+                                <div class="slider_content">
+                                    <span class="slider_data">{activeEvent.data}</span>
+                                    <div class="slider_title">{activeEvent.title}</div>
+                                    <div class="slider_desc">{activeEvent.desc}</div>
+                                    <a href="/events/" onclick={this.Fn.link} class="btn">
+                                        <span>Подробнее</span>
+                                        <span class="pseudo"></span>
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="slider_content">
-                            <span class="slider_data">{activeEvent.data}</span>
-                            <div class="slider_title">{activeEvent.title}</div>
-                            <div class="slider_desc">{activeEvent.desc}</div>
-                            <a href="/events/" onclick={this.Fn.link} class="btn">
-                                <span>Подробнее</span>
-                                <span class="pseudo"></span>
-                            </a>
+                        <div class="slider_pagination">
+                            {
+                                events.map((item, index) => {
+                                    return (
+                                        <span
+                                            class={["slider_pagination-bullet",
+                                                activeEvent == events[index] ? "slider_pagination-bullet_active" : null]}
+                                            onclick={() => {
+                                                activeEvent = events[index];
+                                                this.init();
+                                            }}
+                                        >
+                                        </span>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
-
-                </div>
-                <div class="slider_pagination">
-                    {
-                        events.map((item, index) => {
-                            return (
-                                <span
-                                    class={["slider_pagination-bullet",
-                                        activeEvent == events[index] ? "slider_pagination-bullet_active" : null]}
-                                    onclick={() => {
-                                        activeEvent = events[index];
-                                        this.init();
-                                    }}
-                                >
-                                </span>
-                            )
-                        })
-                    }
                 </div>
             </section>
 
@@ -269,12 +283,12 @@ export const display = function () {
                 <div class="container">
                     <div class="form_inner">
                         <div class="form_item">
-                            <h2 class="form_title">Автономная некоммерческая организация "ОФИЦЕРЫ И СОЛДАТЫ РОССИИ"</h2>
-                            <div class="default_block">
+                            <h2 class="form_title">Общественная организация "ОФИЦЕРЫ И СОЛДАТЫ РОССИИ"</h2>
+                            <div class="default_block mt-15">
                                 <img src={uzor_lt} class="uzor uzor_lt" />
                                 <img src={uzor_rt} class="uzor uzor_rt" />
                                 <p class="text">
-                                    <span class="letter">«ОФИЦЕРЫ И СОЛДАТЫ РОССИИ»</span> работают во благо страны и общества. Одна из ключевых задач организации – консолидация ветеранов всех служб, вне зависимости от ведомственной принадлежности, объединение их потенциала с действующими офицерами и гражданами в целях системного решения задач, важных для государства и общества в сфере повышения уровня безопасности граждан и обороноспособности страны.
+                                    <span class="letter">«ОФИЦЕРЫ И СОЛДАТЫ МИРА»</span> - наша цель объединить офицеров и солдатов всех стран во имя Добра и Мира на земле. Один за  всех и все за одного!
                                 </p>
                                 <img src={uzor_lb} class="uzor uzor_lb" />
                                 <img src={uzor_rb} class="uzor uzor_rb" />
@@ -293,7 +307,7 @@ export const display = function () {
                 </div>
             </section>
 
-            {/* <section class="team">
+            <section class="team">
                 <div class="container">
                     <div class="wrap-title">
                         <h2 class="title">Наши сотрудники</h2>
@@ -323,7 +337,6 @@ export const display = function () {
                                 isDragging = false;
                             }}
                             ontouchstart={(e) => {
-                                console.log('=d004e1=', e)
                                 const firstTouch = e.touches[0];
                                 x1 = firstTouch.clientX;
                                 y1 = firstTouch.clientY;
@@ -379,7 +392,7 @@ export const display = function () {
                         </a>
                     </div>
                 </div>
-            </section> */}
+            </section>
 
         </div>
 

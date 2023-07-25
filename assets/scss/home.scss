@@ -49,42 +49,55 @@
             margin: 0 55px;
             position: relative;
 
-            // &::before {
-            //     content: '';
-            //     position: absolute;
-            //     width: 100%;
-            //     height: 100%;
-            //     z-index: -1;
-            //     background-image: url('images/background/papyrus2.png');
-            //     background-repeat: no-repeat;
-            //     background-size: contain;
-            // }
+
         }
 
-
-
-        .quote p {
+        .quote {
             position: relative;
+
+            &::before,
+            &::after {
+                font-size: 60px;
+                font-family: Georgia;
+                position: absolute;
+            }
+
+            &::before {
+                content: "“";
+                top: -35px;
+                left: -30px;
+            }
+
+            &::after {
+                content: "”";
+                bottom: -45px;
+                right: -10px;
+            }
         }
 
-        .quote p::before,
-        .quote p::after {
-            font-size: 60px;
-            font-family: Georgia;
-            position: absolute;
-        }
 
-        .quote p::before {
-            content: "“";
-            top: 0;
-            left: -40px;
-        }
+        // .quote p {
+        //     position: relative;
+        // }
 
-        .quote p::after {
-            content: "”";
-            bottom: -30px;
-            right: -10px;
-        }
+        // .quote p::before,
+        // .quote p::after {
+        //     font-size: 60px;
+        //     font-family: Georgia;
+        //     position: absolute;
+        // }
+
+        // .quote p::before {
+        //     content: "“";
+        //     top: 0;
+        //     left: -40px;
+        // }
+
+        // .quote p::after {
+        //     content: "”";
+        //     bottom: -30px;
+        //     right: -10px;
+        // }
 
         &_item {
             // box-shadow: 0.25em 0.25em 2em rgba(0, 0, 0, 0.25);
@@ -117,7 +130,7 @@
 
 // team
 .team {
-    padding-bottom: 100px;
+    // padding-bottom: 100px;
 }
 
 .team_wrap {
@@ -202,78 +215,6 @@
 
 }
 
-// .team_button {
-//     cursor: pointer;
-//     position: absolute;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     z-index: 15;
-//     width: 35px;
-//     height: 35px;
-//     background: var(--white);
-//     box-shadow: 0 10px 30px #c7c7c7;
-//     border-radius: 50%;
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-
-//     img {
-//         width: 25px;
-//     }
-
-//     &_next {
-//         right: -50px;
-//     }
-
-//     &_prev {
-//         left: -50px;
-//     }
-
-//     @media(max-width: 464px) {
-//         display: none;
-//     }
-// }
-
-// .team_header {
-//     position: relative;
-//     display: flex;
-//     align-items: center;
-//     gap: 2em;
-//     padding: 1em;
-//     border-radius: calc(40 * 1px) 0 0 0;
-//     background-color: var(--white);
-//     transform: translateY(-100%);
-//     transition: .2s ease-in-out;
-// }
-
-// .team_header-text {
-//     h3 {
-//         word-wrap: break-word;
-//         font-size: 14px;
-//     }
-// }
-
-// .team_item:hover {
-
-//     .team_overlay,
-//     .team_header {
-//         transform: translateY(0);
-//     }
-// }
-
-
-
-// .team_desc {
-//     padding: 0 2em 2em;
-//     margin: 0;
-//     color: var(--black);
-//     font-size: 16px;
-//     display: -webkit-box;
-//     -webkit-box-orient: vertical;
-//     -webkit-line-clamp: 3;
-//     overflow: hidden;
-// }
-
 
 
 // team
@@ -281,7 +222,7 @@
 
 // form
 .form {
-    margin-top: 200px;
+    margin-top: 100px;
     background-color: var(--secondaryBack);
     padding: 15px 0 50px 0;
 
@@ -328,23 +269,29 @@
 
 @media(max-width: 1200px) {
     .main {
-
         .appeal {
-            gap: 15px;
+            padding: 0 10px;
+            grid-template-columns: 3fr 1fr;
+            gap: 0;
 
-            .quote p::before {
-                top: -10px;
-                left: -20px;
+            .wrap_quote {
+                margin: 0 0 0 35px;
             }
         }
-    }
 
-    .wrap_quote {
-        margin: 15px;
+        .appeal_user {
+            align-items: flex-start;
+        }
 
         .quote {
-            margin: 10px;
-            margin-bottom: 30px;
+            .text {
+                font-size: 14px;
+                line-height: 18px;
+            }
+        }
+
+        .quote:first-child {
+            margin-right: 100px !important;
         }
     }
 }
@@ -369,28 +316,48 @@
         }
 
         .appeal {
-            grid-template-columns: 6fr 1fr;
+            grid-template-columns: 1fr;
+
+            .wrap_quote {
+                max-width: 80%;
+            }
         }
 
         .appeal_user {
             position: absolute;
             right: 15px;
             top: 0;
-            width: 100px;
+            width: 150px;
         }
     }
 }
 
 @media(max-width: 767px) {
 
+    .uzor {
+        width: 50px;
+    }
 
     .main {
+        margin-bottom: 180px;
+
         .appeal {
             grid-template-columns: 1fr;
+            padding-top: 0;
+
+            .wrap_quote {
+                max-width: 95%;
+            }
         }
     }
 
     // events
+    .events {
+        .wrap-title {
+            transform: translateY(-160px);
+        }
+    }
+
     .events_inner {
         grid-template-columns: 1fr;
     }
@@ -399,12 +366,30 @@
         grid-template-columns: 1fr;
     }
 
+    .team_button {
+        display: none;
+    }
 
 }
 
+@media(max-width: 690px) {
+    .main {
+        padding-top: 15px;
+
+        .appeal {
+            .wrap_quote {
+                max-width: 100%;
+                margin: 0;
+            }
+        }
+
+        .appeal_user {
+            top: -10px;
+        }
+    }
+}
+
 @media(max-width: 464px) {
-
-
 
     // main
     .main {
@@ -425,27 +410,12 @@
                 margin: 0 15px;
                 position: relative;
             }
-
-            // .wrap_quote::before {
-            //     content: '';
-            //     position: absolute;
-            //     width: 175%;
-            //     height: 160%;
-            //     top: -27%;
-            //     left: -75%;
-            //     z-index: -1;
-            //     background-image: url('images/background/papyrus2.png');
-            //     background-repeat: no-repeat;
-            //     background-size: contain;
-            //     transform: rotate(90deg);
-            // }
         }
 
         .appeal_user {
             display: none;
         }
     }
-
 
     // section events 
     .events {
@@ -460,11 +430,18 @@
         }
     }
 
+    // form
+    .form_title {
+        font-size: 16px;
+    }
+
     // team
     .team {
         padding: 0 15px;
         // margin-bottom: 30px;
     }
+
+
 }
 
 
@@ -487,7 +464,6 @@
     @media screen and (max-width: 768px) {
         min-height: 500px;
         height: auto;
-        margin: 180px auto;
     }
 
 
