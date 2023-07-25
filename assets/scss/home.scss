@@ -370,6 +370,14 @@
         display: none;
     }
 
+    // .team {
+    //     padding: 0 0 0 15px;
+    //     margin-bottom: 30px;
+    // }
+    .team_carousel {
+        padding: 0 10px;
+    }
+
 }
 
 @media(max-width: 690px) {
@@ -393,6 +401,8 @@
 
     // main
     .main {
+        margin-bottom: 140px;
+
         .appeal_wrap {
             flex-direction: column;
 
@@ -409,6 +419,31 @@
             .wrap_quote {
                 margin: 0 15px;
                 position: relative;
+            }
+
+            .quote {
+                margin: 0;
+
+                &::before {
+                    left: -15px;
+                }
+
+                &::after {
+                    bottom: -55px;
+                }
+            }
+
+            .quote:first-child {
+                margin-right: 0;
+            }
+
+            .quote:first-child,
+            .quote p:first-child {
+                margin-right: 0 !important;
+            }
+
+            figcaption {
+                margin-top: 25px;
             }
         }
 
@@ -435,12 +470,9 @@
         font-size: 16px;
     }
 
-    // team
-    .team {
-        padding: 0 15px;
-        // margin-bottom: 30px;
+    .wrap_btn {
+        justify-content: center;
     }
-
 
 }
 
