@@ -1,87 +1,100 @@
 import { Cemjsx } from "cemjs-all"
-import slide1 from '@images/events/1.png'
-import slide2 from '@images/events/2.jpg'
-import slide3 from '@images/events/3.jpg'
-import slide4 from '@images/events/4.jpg'
+import meetDeputy1 from '@images/events/11/1.jpg'
+import meetDeputy2 from '@images/events/11/2.jpg'
+
+import yourself1 from '@images/events/10/1.jpg'
+import yourself2 from '@images/events/10/2.jpg'
+import yourself3 from '@images/events/10/3.jpg'
+import yourself4 from '@images/events/10/4.jpg'
+import yourself5 from '@images/events/10/5.jpg'
+import yourself6 from '@images/events/10/6.jpg'
+
+import sirius1 from '@images/events/9/1.jpg'
+import sirius2 from '@images/events/9/2.jpg'
+import sirius3 from '@images/events/9/3.jpg'
+import sirius4 from '@images/events/9/4.jpg'
+import sirius5 from '@images/events/9/5.jpg'
+import sirius6 from '@images/events/9/6.jpg'
+
+import final1 from '@images/events/8/1.jpg'
+import final2 from '@images/events/8/2.jpg'
 
 
-import one from '@images/events/1.png'
-import two from '@images/events/2.jpg'
-import three from '@images/events/3.jpg'
-import four from '@images/events/4.jpg'
+
+
 
 const galleryMeetDeputy = [
     {
-        src: "/assets/images/events/11/1.jpg",
+        src: meetDeputy1,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/11/2.jpg',
+        src: meetDeputy2,
         alt: 'Event'
     },
 ]
 
 const galleryYourSelf = [
     {
-        src: "/assets/images/events/10/1.jpg",
+        src: yourself1,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/10/2.jpg',
+        src: yourself2,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/10/3.jpg',
+        src: yourself3,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/10/4.jpg',
+        src: yourself4,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/10/5.jpg',
+        src: yourself5,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/10/6.jpg',
+        src: yourself6,
         alt: 'Event'
     },
 ]
 
 const gallerySirius = [
     {
-        src: "/assets/images/events/9/1.jpg",
+        src: sirius1,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/9/2.jpg',
+        src: sirius2,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/9/3.jpg',
+        src: sirius3,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/9/4.jpg',
+        src: sirius4,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/9/5.jpg',
+        src: sirius5,
         alt: 'Event'
     },
     {
-        src: '/assets/images/events/9/6.jpg',
+        src: sirius6,
         alt: 'Event'
     },
 ]
 
 const galleryFinal = [
     {
-        src: "/assets/images/events/8/1.jpg",
+        src: final1,
         alt: 'Event'
     },
     {
-        src: "/assets/images/events/8/2.jpg",
+        src: final2,
         alt: 'Event'
     }
 ]
@@ -317,7 +330,7 @@ export const display = function () {
                     </div>
                     <span class="event_data">9 июня 2023г.</span>
                 </section>
-                <section class="event event_gallery">
+                {/* <section class="event event_gallery">
                     <div class="gallery">
                         <div
                             type="button"
@@ -472,7 +485,7 @@ export const display = function () {
 
                     </div>
                     <span class="event_data">25 июня 2022г.</span>
-                </section>
+                </section> */}
             </div>
 
         </div>
