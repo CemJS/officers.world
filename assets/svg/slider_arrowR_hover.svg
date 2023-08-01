@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Слой_1" x="0" y="0" version="1.1" viewBox="0 0 51 51">
+  <style>
+    .st2{fill:none;stroke:#fff}
+  </style>
+  <path fill="#8c1c28" stroke="#8c1c28" d="M7.9 7.9h34.7v34.7H7.9z" transform="rotate(-45.001 25.24 25.241)"/>
+  <path fill="#fff" d="M38.4 25.1c.2.2.2.5 0 .7L35.2 29c-.2.2-.5.2-.7 0-.2-.2-.2-.5 0-.7l2.8-2.8-2.8-2.8c-.2-.2-.2-.5 0-.7.2-.2.5-.2.7 0l3.2 3.1zM25 25h13v1H25v-1z"/>
+  <circle cx="12.1" cy="25.3" r="1.6" class="st2"/>
+  <circle cx="19" cy="25.3" r="2.3" class="st2"/>
+</svg>

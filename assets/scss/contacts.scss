@@ -1,0 +1,65 @@
+@import 'utils/variables.scss';
+
+.contacts {
+  padding-top: 30px;
+  height: var(--app-height);
+
+  &_inner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+  }
+
+  &_item {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--primaryText);
+    height: 200px;
+    transition: 0.09s linear;
+
+    img {
+      width: 40px;
+    }
+
+    // &:hover {
+    //   transform: perspective(600px) rotateY(180deg);
+    // }
+  }
+
+  @media(max-width: 1299px) {
+    padding: 30px 15px 0 15px;
+  }
+
+  @media(max-width: 992px) {
+    &_inner {
+      gap: 15px;
+    }
+
+    &_item {
+      height: 150px;
+    }
+  }
+
+  @media(max-width: 767px) {
+    &_inner {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media(max-width: 464px) {
+    &_inner {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &_item {
+      height: 100px;
+
+      img {
+        width: 30px;
+      }
+    }
+  }
+}
